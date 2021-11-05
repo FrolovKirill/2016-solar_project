@@ -23,6 +23,10 @@ def read_space_objects_data_from_file(input_filename):
                 star = Star()
                 parse_star_parameters(line, star)
                 objects.append(star)
+            elif object_type == "planet":  
+                planet = Planet()
+                parse_planet_parameters(line, planet)
+                objects.append(planet)
             else:
                 print("Unknown space object")
 
@@ -43,6 +47,20 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
+    star.R = line.split()[1].lower()
+    """Радиус звезды"""
+    star.color = line.split()[2].lower()
+    """Цвет звезды"""
+    star.m = line.split()[3].lower()
+    """Масса звезды"""
+    star.x = line.split()[4].lower()
+    """Координата по оси **x**"""
+    star.y = line.split()[5].lower()
+    """Скорость по оси **y**"""
+    star.vx = line.split()[6].lower()
+    """Скорость по оси **x**"""
+    star.vy = line.split()[7].lower()
+    """Скорость по оси **y**"""
 
     pass  # FIXME: not done yet
 
@@ -61,8 +79,20 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
-    pass  # FIXME: not done yet...
-
+    planet.R = line.split()[1].lower()
+    """Радиус планеты"""
+    planet.color = line.split()[2].lower()
+    """Цвет планеты""""
+    planet.m = line.split()[3].lower()
+    """Масса планеты"""
+    planet.x = line.split()[4].lower()
+    """Координата по оси **x**"""
+    planet.y = line.split()[5].lower()
+    """Скорость по оси **y**"""
+    planet.vx = line.split()[6].lower()
+    """Скорость по оси **x**"""
+    planet.vy = line.split()[7].lower()
+    """Скорость по оси **y**"""
 
 def write_space_objects_data_to_file(output_filename, space_objects):
     """Сохраняет данные о космических объектах в файл.
@@ -75,12 +105,16 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     **output_filename** — имя входного файла
     **space_objects** — список объектов планет и звёзд
     """
-    with open(output_filename, 'w') as out_file:
+ '''   with open(output_filename, 'w') as out_file:
         for obj in space_objects:
             print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
             # FIXME: should store real values
 
-# FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
+# FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл... '''
+    with open(output_filename, 'w') as out_file:
+        for obj in space_objects:
+            print(obj.type,' ',obj.R,' ',obj.color,' ',obj.m,' ',obj.x,' ',y,' ',Vx,' ',Vy,'\n')
+ 
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
