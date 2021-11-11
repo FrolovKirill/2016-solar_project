@@ -47,19 +47,19 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
-    star.R = int(line.split()[1].lower())
+    star.R = int(float(line.split()[1].lower()))
     """Радиус звезды"""
     star.color = line.split()[2].lower()
     """Цвет звезды"""
-    star.m = int(line.split()[3].lower())
+    star.m = int(float(line.split()[3].lower()))
     """Масса звезды"""
-    star.x = int(line.split()[4].lower())
+    star.x = int(float(line.split()[4].lower()))
     """Координата по оси **x**"""
-    star.y = int(line.split()[5].lower())
+    star.y = int(float(line.split()[5].lower()))
     """Скорость по оси **y**"""
-    star.vx = int(line.split()[6].lower())
+    star.vx = int(float(line.split()[6].lower()))
     """Скорость по оси **x**"""
-    star.vy = int(line.split()[7].lower())
+    star.vy = int(float(line.split()[7].lower()))
     """Скорость по оси **y**"""
 
     return star.R, star.color, star.m, star.x, star.y, star.vx, star.vy
@@ -80,19 +80,19 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
-    planet.R = int(line.split()[1].lower())
+    planet.R = int(float(line.split()[1].lower()))
     """Радиус планеты"""
     planet.color = line.split()[2].lower()
     """Цвет планеты"""
-    planet.m = int(line.split()[3].lower())
+    planet.m = int(float(line.split()[3].lower()))
     """Масса планеты"""
-    planet.x = int(line.split()[4].lower())
+    planet.x = int(float(line.split()[4].lower()))
     """Координата по оси **x**"""
-    planet.y = int(line.split()[5].lower())
+    planet.y = int(float(line.split()[5].lower()))
     """Скорость по оси **y**"""
-    planet.vx = int(line.split()[6].lower())
+    planet.vx = int(float(line.split()[6].lower()))
     """Скорость по оси **x**"""
-    planet.vy = int(line.split()[7].lower())
+    planet.vy = int(float(line.split()[7].lower()))
     """Скорость по оси **y**"""
 
     return planet.R, planet.color, planet.m, planet.x, planet.y, planet.vx, planet.vy
