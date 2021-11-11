@@ -47,19 +47,19 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
-    star.R = line.split()[1].lower()
+    star.R = int(line.split()[1].lower())
     """Радиус звезды"""
     star.color = line.split()[2].lower()
     """Цвет звезды"""
-    star.m = line.split()[3].lower()
+    star.m = int(line.split()[3].lower())
     """Масса звезды"""
-    star.x = line.split()[4].lower()
+    star.x = int(line.split()[4].lower())
     """Координата по оси **x**"""
-    star.y = line.split()[5].lower()
+    star.y = int(line.split()[5].lower())
     """Скорость по оси **y**"""
-    star.vx = line.split()[6].lower()
+    star.vx = int(line.split()[6].lower())
     """Скорость по оси **x**"""
-    star.vy = line.split()[7].lower()
+    star.vy = int(line.split()[7].lower())
     """Скорость по оси **y**"""
 
     return star.R, star.color, star.m, star.x, star.y, star.vx, star.vy
@@ -80,19 +80,19 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
-    planet.R = line.split()[1].lower()
+    planet.R = int(line.split()[1].lower())
     """Радиус планеты"""
     planet.color = line.split()[2].lower()
-    """Цвет планеты""""
-    planet.m = line.split()[3].lower()
+    """Цвет планеты"""
+    planet.m = int(line.split()[3].lower())
     """Масса планеты"""
-    planet.x = line.split()[4].lower()
+    planet.x = int(line.split()[4].lower())
     """Координата по оси **x**"""
-    planet.y = line.split()[5].lower()
+    planet.y = int(line.split()[5].lower())
     """Скорость по оси **y**"""
-    planet.vx = line.split()[6].lower()
+    planet.vx = int(line.split()[6].lower())
     """Скорость по оси **x**"""
-    planet.vy = line.split()[7].lower()
+    planet.vy = int(line.split()[7].lower())
     """Скорость по оси **y**"""
 
     return planet.R, planet.color, planet.m, planet.x, planet.y, planet.vx, planet.vy
@@ -110,7 +110,8 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(obj.type,' ',obj.R,' ',obj.color,' ',obj.m,' ',obj.x,' ',y,' ',Vx,' ',Vy,'\n')
+            out_file.write(obj.type + ' ' + str(obj.R) + ' ' + obj.color + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' +
+                           str(obj.y) + ' ' + str(obj.Vx) + ' ' + str(obj.Vy) + '\n')
  
 
 if __name__ == "__main__":
