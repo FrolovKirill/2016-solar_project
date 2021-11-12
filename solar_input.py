@@ -23,7 +23,7 @@ def read_space_objects_data_from_file(input_filename):
                 star = Star()
                 parse_star_parameters(line, star)
                 objects.append(star)
-            elif object_type == "planet":  
+            elif object_type == "planet":
                 planet = Planet()
                 parse_planet_parameters(line, planet)
                 objects.append(planet)
@@ -51,15 +51,15 @@ def parse_star_parameters(line, star):
     """Радиус звезды"""
     star.color = line.split()[2].lower()
     """Цвет звезды"""
-    star.m = int(float(line.split()[3].lower()))
+    star.m = float(line.split()[3].lower())
     """Масса звезды"""
-    star.x = int(float(line.split()[4].lower()))
+    star.x = float(line.split()[4].lower())
     """Координата по оси **x**"""
-    star.y = int(float(line.split()[5].lower()))
+    star.y = float(line.split()[5].lower())
     """Скорость по оси **y**"""
-    star.vx = int(float(line.split()[6].lower()))
+    star.vx = float(line.split()[6].lower())
     """Скорость по оси **x**"""
-    star.vy = int(float(line.split()[7].lower()))
+    star.vy = float(line.split()[7].lower())
     """Скорость по оси **y**"""
 
     return star.R, star.color, star.m, star.x, star.y, star.vx, star.vy
@@ -84,15 +84,15 @@ def parse_planet_parameters(line, planet):
     """Радиус планеты"""
     planet.color = line.split()[2].lower()
     """Цвет планеты"""
-    planet.m = int(float(line.split()[3].lower()))
+    planet.m = float(line.split()[3].lower())
     """Масса планеты"""
-    planet.x = int(float(line.split()[4].lower()))
+    planet.x = float(line.split()[4].lower())
     """Координата по оси **x**"""
-    planet.y = int(float(line.split()[5].lower()))
+    planet.y = float(line.split()[5].lower())
     """Скорость по оси **y**"""
-    planet.vx = int(float(line.split()[6].lower()))
+    planet.vx = float(line.split()[6].lower())
     """Скорость по оси **x**"""
-    planet.vy = int(float(line.split()[7].lower()))
+    planet.vy = float(line.split()[7].lower())
     """Скорость по оси **y**"""
 
     return planet.R, planet.color, planet.m, planet.x, planet.y, planet.vx, planet.vy
@@ -110,9 +110,10 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            out_file.write(obj.type + ' ' + str(obj.R) + ' ' + obj.color + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' +
-                           str(obj.y) + ' ' + str(obj.Vx) + ' ' + str(obj.Vy) + '\n')
- 
+            out_file.write(
+                obj.type + ' ' + str(obj.R) + ' ' + obj.color + ' ' + "%.3e" % obj.m + ' ' + "%.3e" % obj.x + ' ' +
+                "%.3e" % obj.y + ' ' + "%.3e" % obj.vx + ' ' + "%.3e" % obj.vy + '\n\n')
+
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
